@@ -1,0 +1,14 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    ffi (1.0.9)
+    ffi-coremidi (0.1.0)
+      ffi (>= 1.0)
+    unimidi (0.2.2)
+      ffi-coremidi
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  unimidi

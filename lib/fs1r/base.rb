@@ -15,7 +15,17 @@ module Fs1r
       )
     end
 
-    def parameter_request
+    def parameter_request(params)
+      midi_out.puts(
+        0xF0,                # sysex start
+        0x43,                # Yamaha id
+        Fs1r::device_number, # device number
+        0x5E,                # model id
+        params[:pah],        # parameter address high
+        params[:pam],        # parameter address middle
+        params[:pal],        # parameter address low
+        0xF7                 # sysex end
+      )
     end
   end
 end

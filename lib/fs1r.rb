@@ -14,9 +14,11 @@ module Fs1r
   autoload :System,      'fs1r/system'
 
   def self.device_id
-    FS1R_CONFIG
+    FS1R_CONFIG['device_id']
   end
+
+  def self.output_number
+    FS1R_CONFIG['output_number']
+  end
+
 end
-
-
-puts Fs1r::device_id

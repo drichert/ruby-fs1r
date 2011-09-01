@@ -1,2 +1,7 @@
 ---
-device_id: 0x10
+# device id on FS1R
+device_id:     0x10
+
+# MIDI output device number (index)
+# See UniMIDI::Output::all
+output_number: 0

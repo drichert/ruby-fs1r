@@ -2,7 +2,7 @@ $:.unshift File.expand_path(File.dirname(__FILE__))
 
 require 'yaml'
 
-FS1R_CONFIG = YAML::load_file("../#{$:[0]}/config/config.yml")
+FS1R_CONFIG = YAML::load_file("#{$:[0]}/../config/config.yml")
 
 require 'unimidi'
 
@@ -13,14 +13,10 @@ module Fs1r
   autoload :Fseq,        'fs1r/fseq'
   autoload :System,      'fs1r/system'
 
-  def self.base_path
-    File.dirname __FILE__
-  end
-
-  def self.device_number
-    FS1R_CONFIG[:device_number]
+  def self.device_id
+    FS1R_CONFIG
   end
 end
 
 
-puts Fs1r::device_number
+puts Fs1r::device_id

@@ -1,16 +1,6 @@
 module Fs1r
   module Performance
     class Common < Fs1r::Base
-      def parameter_change(params)
-        super(
-          :pah => 0x10,
-          :pam => 0x00,
-          :pal => params[:pal],
-          :dvm => params[:dvm],
-          :dvl => params[:dvl]
-        )
-      end
-
       def name_0; end
       def name_1; end
       def name_2; end
@@ -96,18 +86,19 @@ module Fs1r
       def controller_7_depth; end
       def controller_8_depth; end
 
+      private
+        def parameter_change(params)
+          super(
+            :pah => 0x10,
+            :pam => 0x00,
+            :pal => params[:pal],
+            :dvm => params[:dvm],
+            :dvl => params[:dvl]
+          )
+        end
     end
 
     class Effect < Fs1r::Base
-      def parameter_change(params)
-        super(
-          :pah => 0x10,
-          :pam => params[:pam],
-          :pal => params[:pal],
-          :dvm => params[:dvm],
-          :dvl => params[:dvl]
-        )
-      end
 
       def reverb_parameter_1; end
       def reverb_parameter_2; end
@@ -200,6 +191,16 @@ module Fs1r
       def insertion_parameter_31; end
       def insertion_parameter_32; end
 
+      private
+        def parameter_change(params)
+          super(
+            :pah => 0x10,
+            :pam => params[:pam],
+            :pal => params[:pal],
+            :dvm => params[:dvm],
+            :dvl => params[:dvl]
+          )
+        end
     end
   end
 

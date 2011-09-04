@@ -17,8 +17,8 @@ module Fs1r
     FS1R_CONFIG['device_id']
   end
 
-  def self.output_number
-    FS1R_CONFIG['output_number']
+  def self.output_index
+    FS1R_CONFIG['output_index']
   end
 
 end

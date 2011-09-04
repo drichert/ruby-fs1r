@@ -5,6 +5,15 @@ module Fs1r
     end
 
     private
+      # convert input to a pair of bytes
+      def byte_pair(n)
+        if n.to(s).length > 16 || !n.instance_of?(Fixnum)
+          raise "Input must be 16-bit integer"
+        end
+
+        [n.to_s(2)[0..3].to_i(2), n.to_s{2}[4..7].to_i(2)]
+      end
+
       def parameter_change(params)
         midi_out.puts(
           0xF0,             # sysex start

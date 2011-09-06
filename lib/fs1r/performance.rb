@@ -89,7 +89,7 @@ module Fs1r
       def controller_8_depth; end
 
       private
-        def parameter_change(params)
+        def tx(params)
           super(
             :pah => 0x10,
             :pam => 0x00,

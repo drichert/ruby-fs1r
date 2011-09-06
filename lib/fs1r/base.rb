@@ -4,9 +4,9 @@ module Fs1r
     private
 
       def tx(params)
-        @midi_out ||= UniMIDI::Output[Fs1r::output_index]
-        @midi_out.open {|o|
-          @midi_out.puts(
+        midi_out ||= UniMIDI::Output[Fs1r::output_index]
+        midi_out.open {|o|
+          midi_out.puts(
             0xF0,             # sysex start
             0x43,             # Yamaha id
             Fs1r::device_id,  # device number
@@ -18,14 +18,6 @@ module Fs1r
             params[:dvl],     # data value ls 7bit
             0xF7              # sysex end
           )
-        }
-      end
-
-      def tx(bytes)
-        @midi_out ||= UniMIDI::Output[Fs1r::output_index]
-
-        @midi_out.open {|o|
-          o.puts *bytes
         }
       end
 
@@ -38,26 +30,8 @@ module Fs1r
         [n.to_s(2)[0..3].to_i(2), n.to_s{2}[4..7].to_i(2)]
       end
 
-      def tx(params)
-        @midi_out ||= UniMIDI::Output[Fs1r::output_index]
-        @midi_out.open {|o|
-          @midi_out.puts(
-            0xF0,             # sysex start
-            0x43,             # Yamaha id
-            Fs1r::device_id,  # device number
-            0x5E,             # model id
-            params[:pah],     # parameter address high
-            params[:pam],     # parameter address middle
-            params[:pal],     # parameter address low
-            params[:dvm],     # data value ms 7bit
-            params[:dvl],     # data value ls 7bit
-            0xF7              # sysex end
-          )
-        }
-      end
-
-      # def parameter_request(params)
-      #   tx(
+      # def rx(params)
+      #   midi_out.puts(
       #     0xF0,             # sysex start
       #     0x43,             # Yamaha id
       #     Fs1r::device_id,  # device number

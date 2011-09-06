@@ -4,10 +4,28 @@ module Fs1r
     # Fs1r::Performance::Common
     class Common < Fs1r::Base
 
-      # name_0 - name_11
+      # name_N methods
       (0..11).each do |n|
         define_method("name_#{n}".to_sym) {|v|
           tx n, *byte_pair(v)
+        }
+      end
+
+      (1..8).each do |n|
+        define_method("controller_#{n}_part_switch".to_sym) {|v|
+          # method body
+        }
+        define_method("controller_#{n}_source_switch_hi".to_sym) {|v|
+          # method body
+        }
+        define_method("controller_#{n}_source_switch_lo".to_sym) {|v|
+          # method body
+        }
+        define_method("controller_#{n}_destination".to_sym) {|v|
+          # method body
+        }
+        define_method("controller_#{n}_depth".to_sym) {|v|
+          # method body
         }
       end
 
@@ -39,49 +57,6 @@ module Fs1r
       def fseq_formant_sequence_delay; end
       def fseq_level_level_velocity_sensitivity; end
 
-      def controller_1_part_switch; end
-      def controller_2_part_switch; end
-      def controller_3_part_switch; end
-      def controller_4_part_switch; end
-      def controller_5_part_switch; end
-      def controller_6_part_switch; end
-      def controller_7_part_switch; end
-      def controller_8_part_switch; end
-
-      def controller_1_source_switch_hi; end
-      def controller_1_source_switch_lo; end
-      def controller_2_source_switch_hi; end
-      def controller_2_source_switch_lo; end
-      def controller_3_source_switch_hi; end
-      def controller_3_source_switch_lo; end
-      def controller_4_source_switch_hi; end
-      def controller_4_source_switch_lo; end
-      def controller_5_source_switch_hi; end
-      def controller_5_source_switch_lo; end
-      def controller_6_source_switch_hi; end
-      def controller_6_source_switch_lo; end
-      def controller_7_source_switch_hi; end
-      def controller_7_source_switch_lo; end
-      def controller_8_source_switch_hi; end
-      def controller_8_source_switch_lo; end
-
-      def controller_1_destination; end
-      def controller_2_destination; end
-      def controller_3_destination; end
-      def controller_4_destination; end
-      def controller_5_destination; end
-      def controller_6_destination; end
-      def controller_7_destination; end
-      def controller_8_destination; end
-
-      def controller_1_depth; end
-      def controller_2_depth; end
-      def controller_3_depth; end
-      def controller_4_depth; end
-      def controller_5_depth; end
-      def controller_6_depth; end
-      def controller_7_depth; end
-      def controller_8_depth; end
 
       private
         def tx(params)

@@ -3,6 +3,10 @@ module Fs1r
 
     # Fs1r::Performance::Common
     class Common < Fs1r::Base
+      # TODO: dynamic method naming --
+      #   add a method to Array ot
+      #   create instance methods with names
+      #   from an array of output names
       def name_0(v);   tx 0x00, *byte_pair(v); end
       def name_1(v);   tx 0x01, *byte_pair(v); end
       def name_2(v);   tx 0x02, *byte_pair(v); end

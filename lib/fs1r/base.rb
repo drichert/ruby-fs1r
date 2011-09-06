@@ -2,9 +2,11 @@ module Fs1r
   class Base
 
     private
+      def midi_out
+        midi_out ||= UniMIDI::Output[Fs1r::output_index]
+      end
 
       def tx(params)
-        midi_out ||= UniMIDI::Output[Fs1r::output_index]
         midi_out.open {|o|
           midi_out.puts(
             0xF0,             # sysex start

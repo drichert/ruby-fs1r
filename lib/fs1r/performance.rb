@@ -98,182 +98,181 @@ module Fs1r
             :dvl => params[:dvl]
           )
         end
-        alias :tx, :parameter_change
     end
 
     # Fs1r::Performance::Effect
-    class Effect < Fs1r::Base
+    # class Effect < Fs1r::Base
 
-      def reverb_parameter_1; end
-      def reverb_parameter_2; end
-      def reverb_parameter_3; end
-      def reverb_parameter_4; end
-      def reverb_parameter_5; end
-      def reverb_parameter_6; end
-      def reverb_parameter_7; end
-      def reverb_parameter_8; end
-      def reverb_parameter_9; end
-      def reverb_parameter_10; end
-      def reverb_parameter_11; end
-      def reverb_parameter_12; end
-      def reverb_parameter_13; end
-      def reverb_parameter_14; end
-      def reverb_parameter_15; end
-      def reverb_parameter_16; end
-      def reverb_parameter_17; end
-      def reverb_parameter_18; end
-      def reverb_parameter_19; end
-      def reverb_parameter_20; end
-      def reverb_parameter_21; end
-      def reverb_parameter_22; end
-      def reverb_parameter_23; end
-      def reverb_parameter_24; end
+    #   def reverb_parameter_1; end
+    #   def reverb_parameter_2; end
+    #   def reverb_parameter_3; end
+    #   def reverb_parameter_4; end
+    #   def reverb_parameter_5; end
+    #   def reverb_parameter_6; end
+    #   def reverb_parameter_7; end
+    #   def reverb_parameter_8; end
+    #   def reverb_parameter_9; end
+    #   def reverb_parameter_10; end
+    #   def reverb_parameter_11; end
+    #   def reverb_parameter_12; end
+    #   def reverb_parameter_13; end
+    #   def reverb_parameter_14; end
+    #   def reverb_parameter_15; end
+    #   def reverb_parameter_16; end
+    #   def reverb_parameter_17; end
+    #   def reverb_parameter_18; end
+    #   def reverb_parameter_19; end
+    #   def reverb_parameter_20; end
+    #   def reverb_parameter_21; end
+    #   def reverb_parameter_22; end
+    #   def reverb_parameter_23; end
+    #   def reverb_parameter_24; end
 
-      def variation_parameter_1; end
-      def variation_parameter_2; end
-      def variation_parameter_3; end
-      def variation_parameter_4; end
-      def variation_parameter_5; end
-      def variation_parameter_6; end
-      def variation_parameter_7; end
-      def variation_parameter_8; end
-      def variation_parameter_9; end
-      def variation_parameter_10; end
-      def variation_parameter_11; end
-      def variation_parameter_12; end
-      def variation_parameter_13; end
-      def variation_parameter_14; end
-      def variation_parameter_15; end
-      def variation_parameter_16; end
-      def variation_parameter_17; end
-      def variation_parameter_18; end
-      def variation_parameter_19; end
-      def variation_parameter_20; end
-      def variation_parameter_21; end
-      def variation_parameter_22; end
-      def variation_parameter_23; end
-      def variation_parameter_24; end
-      def variation_parameter_25; end
-      def variation_parameter_26; end
-      def variation_parameter_27; end
-      def variation_parameter_28; end
-      def variation_parameter_29; end
-      def variation_parameter_30; end
-      def variation_parameter_31; end
-      def variation_parameter_32; end
+    #   def variation_parameter_1; end
+    #   def variation_parameter_2; end
+    #   def variation_parameter_3; end
+    #   def variation_parameter_4; end
+    #   def variation_parameter_5; end
+    #   def variation_parameter_6; end
+    #   def variation_parameter_7; end
+    #   def variation_parameter_8; end
+    #   def variation_parameter_9; end
+    #   def variation_parameter_10; end
+    #   def variation_parameter_11; end
+    #   def variation_parameter_12; end
+    #   def variation_parameter_13; end
+    #   def variation_parameter_14; end
+    #   def variation_parameter_15; end
+    #   def variation_parameter_16; end
+    #   def variation_parameter_17; end
+    #   def variation_parameter_18; end
+    #   def variation_parameter_19; end
+    #   def variation_parameter_20; end
+    #   def variation_parameter_21; end
+    #   def variation_parameter_22; end
+    #   def variation_parameter_23; end
+    #   def variation_parameter_24; end
+    #   def variation_parameter_25; end
+    #   def variation_parameter_26; end
+    #   def variation_parameter_27; end
+    #   def variation_parameter_28; end
+    #   def variation_parameter_29; end
+    #   def variation_parameter_30; end
+    #   def variation_parameter_31; end
+    #   def variation_parameter_32; end
 
-      def insertion_parameter_1; end
-      def insertion_parameter_2; end
-      def insertion_parameter_3; end
-      def insertion_parameter_4; end
-      def insertion_parameter_5; end
-      def insertion_parameter_6; end
-      def insertion_parameter_7; end
-      def insertion_parameter_8; end
-      def insertion_parameter_9; end
-      def insertion_parameter_10; end
-      def insertion_parameter_11; end
-      def insertion_parameter_12; end
-      def insertion_parameter_13; end
-      def insertion_parameter_14; end
-      def insertion_parameter_15; end
-      def insertion_parameter_16; end
-      def insertion_parameter_17; end
-      def insertion_parameter_18; end
-      def insertion_parameter_19; end
-      def insertion_parameter_20; end
-      def insertion_parameter_21; end
-      def insertion_parameter_22; end
-      def insertion_parameter_23; end
-      def insertion_parameter_24; end
-      def insertion_parameter_25; end
-      def insertion_parameter_26; end
-      def insertion_parameter_27; end
-      def insertion_parameter_28; end
-      def insertion_parameter_29; end
-      def insertion_parameter_30; end
-      def insertion_parameter_31; end
-      def insertion_parameter_32; end
+    #   def insertion_parameter_1; end
+    #   def insertion_parameter_2; end
+    #   def insertion_parameter_3; end
+    #   def insertion_parameter_4; end
+    #   def insertion_parameter_5; end
+    #   def insertion_parameter_6; end
+    #   def insertion_parameter_7; end
+    #   def insertion_parameter_8; end
+    #   def insertion_parameter_9; end
+    #   def insertion_parameter_10; end
+    #   def insertion_parameter_11; end
+    #   def insertion_parameter_12; end
+    #   def insertion_parameter_13; end
+    #   def insertion_parameter_14; end
+    #   def insertion_parameter_15; end
+    #   def insertion_parameter_16; end
+    #   def insertion_parameter_17; end
+    #   def insertion_parameter_18; end
+    #   def insertion_parameter_19; end
+    #   def insertion_parameter_20; end
+    #   def insertion_parameter_21; end
+    #   def insertion_parameter_22; end
+    #   def insertion_parameter_23; end
+    #   def insertion_parameter_24; end
+    #   def insertion_parameter_25; end
+    #   def insertion_parameter_26; end
+    #   def insertion_parameter_27; end
+    #   def insertion_parameter_28; end
+    #   def insertion_parameter_29; end
+    #   def insertion_parameter_30; end
+    #   def insertion_parameter_31; end
+    #   def insertion_parameter_32; end
 
-      private
-        def parameter_change(params)
-          super(
-            :pah => 0x10,
-            :pam => params[:pam],
-            :pal => params[:pal],
-            :dvm => params[:dvm],
-            :dvl => params[:dvl]
-          )
-        end
-        alias :tx, :parameter_change
-    end
+    #   private
+    #     def parameter_change(params)
+    #       super(
+    #         :pah => 0x10,
+    #         :pam => params[:pam],
+    #         :pal => params[:pal],
+    #         :dvm => params[:dvm],
+    #         :dvl => params[:dvl]
+    #       )
+    #     end
+    #     alias :tx, :parameter_change
+    # end
 
-    # Fs1r::Performance::Part
-    class Part < Fs1r::Base
-      def note_reserve; end
-      def bank_number; end
-      def program_number; end
-      def rcv_channel_max; end
-      def rcv_channel; end
-      def mono_poly_mode; end
-      def mono_priority; end
-      def filter_sw; end
-      def note_shift; end
-      def detune; end
-      def voiced_unvoiced_balance; end
-      def volume; end
-      def velocity_sense_depth; end
-      def velocity_sense_offset; end
-      def pan; end
-      def note_limit_low; end
-      def note_limit_high; end
-      def dry_level; end
-      def variation_send; end
-      def reverb_send; end
-      def insertion_sw; end
-      def lfo1_rate; end
-      def lfo1_pitch_mod_depth; end
-      def lfo1_delay; end
-      def filter_cutoff_freq; end
-      def filter_resonance; end
-      def eg_attack_time; end
-      def eg_decay_time; end
-      def eg_release_time; end
-      def formant; end
-      def fm; end
-      def filter_eg_depth; end
-      def pitch_eg_initial_level; end
-      def pitch_eg_attack_time; end
-      def pitch_eg_release_level; end
-      def pitch_eg_release_time; end
-      def portamento_switch_mode; end
-      def portamento_time; end
-      def pitch_bend_range_high; end
-      def pitch_bend_range_low; end
-      def pan_scaling; end
-      def pan_lfo_depth; end
-      def velocity_limit_low; end
-      def velocity_limit_high; end
-      def expression_low_limit; end
-      def sustain_rcv_sw; end
-      def lfo2_rate; end
-      def lfo2_mod_depth; end
+    # # Fs1r::Performance::Part
+    # class Part < Fs1r::Base
+    #   def note_reserve; end
+    #   def bank_number; end
+    #   def program_number; end
+    #   def rcv_channel_max; end
+    #   def rcv_channel; end
+    #   def mono_poly_mode; end
+    #   def mono_priority; end
+    #   def filter_sw; end
+    #   def note_shift; end
+    #   def detune; end
+    #   def voiced_unvoiced_balance; end
+    #   def volume; end
+    #   def velocity_sense_depth; end
+    #   def velocity_sense_offset; end
+    #   def pan; end
+    #   def note_limit_low; end
+    #   def note_limit_high; end
+    #   def dry_level; end
+    #   def variation_send; end
+    #   def reverb_send; end
+    #   def insertion_sw; end
+    #   def lfo1_rate; end
+    #   def lfo1_pitch_mod_depth; end
+    #   def lfo1_delay; end
+    #   def filter_cutoff_freq; end
+    #   def filter_resonance; end
+    #   def eg_attack_time; end
+    #   def eg_decay_time; end
+    #   def eg_release_time; end
+    #   def formant; end
+    #   def fm; end
+    #   def filter_eg_depth; end
+    #   def pitch_eg_initial_level; end
+    #   def pitch_eg_attack_time; end
+    #   def pitch_eg_release_level; end
+    #   def pitch_eg_release_time; end
+    #   def portamento_switch_mode; end
+    #   def portamento_time; end
+    #   def pitch_bend_range_high; end
+    #   def pitch_bend_range_low; end
+    #   def pan_scaling; end
+    #   def pan_lfo_depth; end
+    #   def velocity_limit_low; end
+    #   def velocity_limit_high; end
+    #   def expression_low_limit; end
+    #   def sustain_rcv_sw; end
+    #   def lfo2_rate; end
+    #   def lfo2_mod_depth; end
 
-      private
-        def parameter_change(params)
-          # required params - :pal, :dvm, :dvl
+    #   private
+    #     def parameter_change(params)
+    #       # required params - :pal, :dvm, :dvl
 
-          super(
-            # :part should be 0..3
-            :pah => "3#{params[:part]}".hex
-            :pam => 0x00,
-            :pal => params[:pal],
-            :dvm => params[:dvm],
-            :dvl => params[:dvl]
-          )
-        end
-        alias :tx, :parameter_change
-    end
+    #       super(
+    #         # :part should be 0..3
+    #         :pah => "3#{params[:part]}".hex
+    #         :pam => 0x00,
+    #         :pal => params[:pal],
+    #         :dvm => params[:dvm],
+    #         :dvl => params[:dvl]
+    #       )
+    #     end
+    #     alias :tx, :parameter_change
+    # end
   end
 
 end

@@ -29,7 +29,9 @@ module Fs1r
         }
       end
 
-      def category; end
+      # 0..22
+      def category(v); tx 0x0E, *byte_pair(v); end
+
       def volume; end
       def pan; end
       def note_shift; end

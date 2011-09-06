@@ -12,27 +12,42 @@ module Fs1r
       end
 
       (1..8).each do |n|
+        # 0..15
         define_method("controller_#{n}_part_switch".to_sym) {|v|
-          # method body
+          tx n, *byte_pair(v)
         }
+
+        # 0..127
         define_method("controller_#{n}_source_switch_hi".to_sym) {|v|
-          # method body
+          tx n, *byte_pair(v)
         }
+
+        # 0..127
         define_method("controller_#{n}_source_switch_lo".to_sym) {|v|
-          # method body
+          tx n, *byte_pair(v)
         }
+
+        # 0..47
         define_method("controller_#{n}_destination".to_sym) {|v|
-          # method body
+          tx n, *byte_pair(v)
         }
+
+        # 0..127
         define_method("controller_#{n}_depth".to_sym) {|v|
-          # method body
+          tx n, *byte_pair(v)
         }
       end
 
       # 0..22
-      def category(v); tx 0x0E, *byte_pair(v); end
+      def category(v)
+        tx 0x0E, *byte_pair(v)
+      end
 
-      def volume; end
+      # 0..127
+      def volume
+        tx 0x10, *byte_pair(v)
+      end
+
       def pan; end
       def note_shift; end
       def individual_out; end

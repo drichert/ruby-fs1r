@@ -11,32 +11,34 @@ module Fs1r
         }
       end
 
-      (1..8).each do |n|
-        # 0..15
-        define_method("controller_#{n}_part_switch".to_sym) {|v|
-          tx n, *byte_pair(v)
+      {
+        'controller_n_part_switch' => {
+          :num_methods => 8,
+          :val_range   => 0..15
+        },
+        'controller_n_source_switch_hi' => {
+          :num_methods => 8,
+          :val_range   => 0..127
+        },
+        'controller_n_source_switch_lo' => {
+          :num_methods => 8,
+          :val_range   => 0..127
+        },
+        'controller_n_destination' => {
+          :num_methods => 8,
+          :val_range   => 0..47
+        },
+        'controler_n_depth' => {
+          :num_methods => 8,
+          :val_range   => 0..127
         }
-
-        # 0..127
-        define_method("controller_#{n}_source_switch_hi".to_sym) {|v|
-          tx n, *byte_pair(v)
+      }.each {|meth, params|
+        params[:num_methods].times {|n|
+          define_method(meth.gsub(/_n(_|$)/, "_#{n}\\1").to_sym) {|v|
+            tx n, *byte_pair(v)
+          }
         }
-
-        # 0..127
-        define_method("controller_#{n}_source_switch_lo".to_sym) {|v|
-          tx n, *byte_pair(v)
-        }
-
-        # 0..47
-        define_method("controller_#{n}_destination".to_sym) {|v|
-          tx n, *byte_pair(v)
-        }
-
-        # 0..127
-        define_method("controller_#{n}_depth".to_sym) {|v|
-          tx n, *byte_pair(v)
-        }
-      end
+      }
 
       # 0..22
       def category(v)

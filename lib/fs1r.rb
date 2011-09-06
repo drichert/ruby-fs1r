@@ -4,6 +4,17 @@ require 'yaml'
 
 FS1R_CONFIG = YAML::load_file("#{$:[0]}/../config/config.yml")
 
+# http://blog.jayfields.com/2008/02/ruby-dynamically-define-method.html
+class Class
+  def def_each(*method_names, &block),
+    method_names.each do |method_name|
+      define_method method_name do
+        instance_exec method_name, &block
+      end
+    end
+  end
+end
+
 require 'unimidi'
 
 module Fs1r

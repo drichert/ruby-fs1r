@@ -3,22 +3,13 @@ module Fs1r
 
     # Fs1r::Performance::Common
     class Common < Fs1r::Base
-      # TODO: dynamic method naming --
-      #   add a method to Array ot
-      #   create instance methods with names
-      #   from an array of output names
-      def name_0(v);   tx 0x00, *byte_pair(v); end
-      def name_1(v);   tx 0x01, *byte_pair(v); end
-      def name_2(v);   tx 0x02, *byte_pair(v); end
-      def name_3(v);   tx 0x03, *byte_pair(v); end
-      def name_4(v);   tx 0x04, *byte_pair(v); end
-      def name_5(v);   tx 0x05, *byte_pair(v); end
-      def name_6(v);   tx 0x06, *byte_pair(v); end
-      def name_7(v);   tx 0x07, *byte_pair(v); end
-      def name_8(v);   tx 0x08, *byte_pair(v); end
-      def name_9(v);   tx 0x09, *byte_pair(v); end
-      def name_10(v);  tx 0x0A, *byte_pair(v); end
-      def name_11(v);  tx 0x0B, *byte_pair(v); end
+
+      # name_0 - name_11
+      (0..11).each do |n|
+        define_method("name_#{n}".to_sym) {|v|
+          tx n, *byte_pair(v)
+        }
+      end
 
       def category; end
       def volume; end

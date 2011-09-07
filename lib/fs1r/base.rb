@@ -3,7 +3,7 @@ module Fs1r
 
     private
       def midi_out
-        midi_out ||= UniMIDI::Output[Fs1r::output_index]
+        @midi_out ||= UniMIDI::Output[Fs1r::output_index]
       end
 
       def tx(params)

@@ -129,13 +129,13 @@ module Fs1r
 
 
       private
-        def tx(params)
+        def tx(pal, dvm, dvl)
           super(
             :pah => 0x10,
             :pam => 0x00,
-            :pal => params[:pal],
-            :dvm => params[:dvm],
-            :dvl => params[:dvl]
+            :pal => pal,
+            :dvm => dvm,
+            :dvl => dvl
           )
         end
     end

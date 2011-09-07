@@ -1,4 +1,7 @@
 ruby-fs1r
+========
+
+![FS1R](http://i.imgur.com/R24MH.gif)
 
 Dan Richert
 dan.richert@gmail.com

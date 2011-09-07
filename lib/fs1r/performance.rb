@@ -4,39 +4,44 @@ module Fs1r
     # Fs1r::Performance::Common
     class Common < Fs1r::Base
 
-      # name_N methods
-      (0..11).each do |n|
-        define_method("name_#{n}".to_sym) {|v|
-          tx n, *byte_pair(v)
-        }
-      end
-
       {
+        'name_n' => {
+          :num_methods => 11,
+          :start_ndx   => 0,
+          :val_range   => 32..127
+        },
         'controller_n_part_switch' => {
           :num_methods => 8,
+          :start_ndx   => 1,
           :val_range   => 0..15
         },
         'controller_n_source_switch_hi' => {
           :num_methods => 8,
+          :start_ndx   => 1,
           :val_range   => 0..127
         },
         'controller_n_source_switch_lo' => {
           :num_methods => 8,
+          :start_ndx   => 1,
           :val_range   => 0..127
         },
         'controller_n_destination' => {
           :num_methods => 8,
+          :start_ndx   => 1,
           :val_range   => 0..47
         },
         'controler_n_depth' => {
           :num_methods => 8,
+          :start_ndx   => 1,
           :val_range   => 0..127
         }
       }.each {|meth, params|
-        params[:num_methods].times {|n|
-          define_method(meth.gsub(/_n(_|$)/, "_#{n}\\1").to_sym) {|v|
-            tx n, *byte_pair(v)
-          }
+        (params[:num_methods] + params[:start_ndx]).times {|n|
+          if n >= params[:start_ndx]
+            define_method(meth.gsub(/_n(_|$)/, "_#{n}\\1").to_sym) {|v|
+              tx n, *byte_pair(v)
+            }
+          end
         }
       }
 

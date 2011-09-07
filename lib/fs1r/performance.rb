@@ -55,14 +55,60 @@ module Fs1r
         tx 0x10, *byte_pair(v)
       end
 
-      def pan; end
-      def note_shift; end
-      def individual_out; end
-      def fseq_part; end
-      def fseq_bank; end
-      def fseq_number; end
-      def fseq_speed; end
-      def midi_clock; end
+      # 1..127
+      # c 64
+      def pan(v)
+        tx 0x11, *byte_pair(v)
+      end
+
+      # 0..48
+      # 0:  -24
+      # 24: unshifted (?)
+      # 48: +24
+      def note_shift(v)
+        tx 0x12, *byte_pair(v)
+      end
+
+      # 0..2
+      # 0: off
+      # 1: pre ins
+      # 2: post ins
+      def individual_out(v)
+        tx 0x14, *byte_pair(v)
+      end
+
+      # 0..4
+      # 0: off
+      # 1-4: part
+      def fseq_part(v)
+        tx 0x15, *byte_pair(v)
+      end
+
+      # 0..1
+      # 0: int
+      # 1: pre
+      def fseq_bank(v)
+        tx 0x16, *byte_pair(v)
+      end
+
+      # 0..89
+      # 0-5: int
+      # 6-89: pre
+      def fseq_number(v)
+        tx 0x17, *byte_pair(v)
+      end
+
+      # 0..127
+      # 0-4: MIDI Clock
+      #   0: 1/4
+      #   1: 1/2
+      #   2: 1/1
+      #   3: 2/1
+      #   4: 4/1
+      # 5-127: (10.0 - 500.0)
+      def fseq_speed_ratio(v)
+        tx 0x18, *byte_pair(v)
+      end
 
       def fseq_start_step_offset_hi; end
       def fseq_start_step_offset_lo; end

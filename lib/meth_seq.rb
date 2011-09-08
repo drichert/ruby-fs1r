@@ -2,7 +2,7 @@ module MethSeq
   def meth_seq(spec)
     param_spec = {
       # required if nil here
-      :num_methods     => nil,    # number of methods to define
+      :num_methods     => 1,      # number of methods to define
       :name_num_start  => 1,      # start number in method name
       :param_num_start => nil,    # FS1R parameter number start
       :param_num_step  => 1,      # parameter number inc amount

@@ -1,4 +1,4 @@
-class Class
+module MethSeq
   def meth_seq(spec)
     param_spec = {
       # required if nil here
@@ -33,12 +33,16 @@ class Class
   end
 end
 
-#class X
-#  meth_seq({
-#    'name_n' => {
-#      :num_methods     => 100,
-#      :param_num_start => 200
-#    }
-#  })
-#end
-#puts X.new.methods.grep /name/
+class Class
+  include MethSeq
+end
+
+# class X
+#   meth_seq({
+#     'name_n' => {
+#       :num_methods     => 100,
+#       :param_num_start => 200
+#     }
+#   })
+# end
+# puts X.new.methods.grep /name/

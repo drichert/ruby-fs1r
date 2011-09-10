@@ -36,13 +36,3 @@ end
 class Class
   include MethSeq
 end
-
-# class X
-#   meth_seq({
-#     'name_n' => {
-#       :num_methods     => 100,
-#       :param_num_start => 200
-#     }
-#   })
-# end
-# puts X.new.methods.grep /name/

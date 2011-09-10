@@ -1,5 +1,6 @@
 $:.unshift File.expand_path(File.dirname(__FILE__))
 
+require 'meth_seq'
 require 'yaml'
 
 FS1R_CONFIG = YAML::load_file("#{$:[0]}/../config/config.yml")

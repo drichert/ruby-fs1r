@@ -7,17 +7,12 @@ describe Class do
         @klass = Class.new
         @klass.class_eval do
           meth_seq({
-            # All params
             'good_n' => {
               :num_methods     => 3,
               :name_num_start  => 7,
               :param_num_start => 0x12,
               :param_num_step  => 2,
               :val_range       => 0..48
-            },
-            # Required params only
-            'good_req_n' => {
-              :param_num_start => 0x0D
             }
           })
         end
@@ -28,14 +23,18 @@ describe Class do
         @new_methods = @obj_with_extras.methods - @obj_sans_extras.methods
       end
 
-      it "should define instance methods" do
-        @new_methods.should_not be_empty
+      it "should define :num_methods instance methods" do
+        @new_methods.length.should == 3
       end
 
-      it "should define a method that that contains :name_num_start value" do
+      it "should define a method that contains :name_num_start as first in sequence" do
+        @new_methods.grep(/^good_\d+$/).sort.first =~ /_(\d+)(_|$)/
+        $1.should == '7'
       end
 
-      it "defined methods should be named in numerical sequence" do
+      it "should define a method that contains (:name_num_start + (:num_methods - 1)) as last in sequence" do
+        @new_methods.grep(/^good_\d+$/).sort.last =~ /_(\d+)(_|$)/
+        $1.should == '9'
       end
     end
 

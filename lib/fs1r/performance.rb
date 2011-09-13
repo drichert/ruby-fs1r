@@ -182,6 +182,13 @@ module Fs1r
         tx 0x27, *byte_pair(v)
       end
 
+      def method_missing(meth, *args, &block)
+        if meth =~ /^name_(\d+)$/
+          self.class.class_eval {|args|
+          }
+        end
+      end
+
       private
         def tx(pal, dvm, dvl)
           super(
@@ -242,7 +249,25 @@ module Fs1r
       def insertion_parameter_31; end
       def insertion_parameter_32; end
 
+      def method_missing(meth, *args, &block)
+        unless respond_to? meth
+          if meth =~ /^reverb_parameter_\d+$/
+          elsif meth =~ /^variation_parameter_\d+$/
+          elsif meth =~ /^insertion_parameter_\d+$/
+          else
+            super
+          end
+
+          self.class.send(:define_method, meth) {
+            tx *args
+          }
+          send meth, *args
+        end
+      end
+
       private
+        def add_method(meth, &block)
+        end
         def parameter_change(params)
           super(
             :pah => 0x10,

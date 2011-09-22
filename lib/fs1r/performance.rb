@@ -204,56 +204,51 @@ module Fs1r
     # Fs1r::Performance::Effect
     class Effect < Fs1r::Base
 
-      meth_seq({
-        'reverb_parameter_n' => {
-          :num_methods     => 24,
-          :param_num_start => 0x50
-        },
-        'variation_parameter_n' => {
-          :num_methods     => 24,
-          :param_num_start => 68
-        }
-      })
+      def reverb_type; end
+      def reverb_pan; end
+      def reverb_return; end
 
+      def variation_type; end
+      def variation_pan; end
+      def variation_return; end
+      def send_variation_to_reverb; end
 
-      def insertion_parameter_1; end
-      def insertion_parameter_2; end
-      def insertion_parameter_3; end
-      def insertion_parameter_4; end
-      def insertion_parameter_5; end
-      def insertion_parameter_6; end
-      def insertion_parameter_7; end
-      def insertion_parameter_8; end
-      def insertion_parameter_9; end
-      def insertion_parameter_10; end
-      def insertion_parameter_11; end
-      def insertion_parameter_12; end
-      def insertion_parameter_13; end
-      def insertion_parameter_14; end
-      def insertion_parameter_15; end
-      def insertion_parameter_16; end
-      def insertion_parameter_17; end
-      def insertion_parameter_18; end
-      def insertion_parameter_19; end
-      def insertion_parameter_20; end
-      def insertion_parameter_21; end
-      def insertion_parameter_22; end
-      def insertion_parameter_23; end
-      def insertion_parameter_24; end
-      def insertion_parameter_25; end
-      def insertion_parameter_26; end
-      def insertion_parameter_27; end
-      def insertion_parameter_28; end
-      def insertion_parameter_29; end
-      def insertion_parameter_30; end
-      def insertion_parameter_31; end
-      def insertion_parameter_32; end
+      def insertion_type; end
+      def insertion_pan; end
+      def send_insertion_to_reverb; end
+      def send_insertion_to_variation; end
+      def insertion_level; end
+
+      def eq_low_gain; end
+      def eq_low_frequency; end
+      def eq_low_q; end
+      def eq_low_shape; end
+      def eq_mid_gain; end
+      def eq_mid_frequency; end
+      def eq_mid_q; end
+      def eq_high_gain; end
+      def eq_high_frequency; end
+      def eq_high_q; end
+      def eq_high_shape; end
 
       def method_missing(meth, *args, &block)
         unless respond_to? meth
-          if meth =~ /^reverb_parameter_\d+$/
-          elsif meth =~ /^variation_parameter_\d+$/
-          elsif meth =~ /^insertion_parameter_\d+$/
+          if    meth =~ /^reverb_parameter_(\d+)$/
+            n = $1.to_i
+            if (1..24) === n
+              raise NoMethodError, "Reverb parameter number out of range"
+            end
+
+            self.class.send(:define_method, "reverb_parameter_#{n}".to_sym) {|v|
+              tx 0x00, 0x50 + (n - 1), *byte_pair(v)
+            }
+          elsif meth =~ /^variation_parameter_(\d+)$/
+            if (1..32) === $1.to_i
+              raise NoMethodError, "Variation parameter number out of range"
+            end
+
+            self.class.end(:define_method,
+          elsif meth =~ /^insertion_parameter_(\d+)$/
           else
             super
           end
@@ -266,18 +261,15 @@ module Fs1r
       end
 
       private
-        def add_method(meth, &block)
-        end
-        def parameter_change(params)
+        def tx(pam, pal, dvm, dvl)
           super(
             :pah => 0x10,
-            :pam => params[:pam],
-            :pal => params[:pal],
-            :dvm => params[:dvm],
-            :dvl => params[:dvl]
+            :pam => pam,
+            :pal => pal,
+            :dvm => dvm,
+            :dvl => dvl
           )
         end
-        alias :tx, :parameter_change
     end
 
     # # Fs1r::Performance::Part

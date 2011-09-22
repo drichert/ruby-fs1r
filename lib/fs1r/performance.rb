@@ -233,30 +233,48 @@ module Fs1r
 
       def method_missing(meth, *args, &block)
         unless respond_to? meth
-          if    meth =~ /^reverb_parameter_(\d+)$/
-            n = $1.to_i
-            if (1..24) === n
-              raise NoMethodError, "Reverb parameter number out of range"
+          if /^reverb_parameter_(?<n>\d+)$/ =~ meth
+            if (1..24) === n.to_i
+              raise NameError, "Reverb parameter number out of range"
             end
 
-            self.class.send(:define_method, "reverb_parameter_#{n}".to_sym) {|v|
-              tx 0x00, 0x50 + (n - 1), *byte_pair(v)
+            self.class.send(
+              :define_method,
+              "reverb_parameter_#{n}".to_sym
+            ) {|arg|
+              tx 0x00, 0x50 + (n.to_i - 1), *byte_pair(v)
             }
-          elsif meth =~ /^variation_parameter_(\d+)$/
-            if (1..32) === $1.to_i
-              raise NoMethodError, "Variation parameter number out of range"
+            # Call method after defining it
+
+          elsif /^variation_parameter_(?<n>\d+)$/ =~ meth
+            if (1..32) === n.to_i
+              raise NameError, "Variation parameter number out of range"
             end
 
-            self.class.end(:define_method,
-          elsif meth =~ /^insertion_parameter_(\d+)$/
+            self.class.send(
+              :define_method,
+              "variation_parameter_#{n}".to_sym
+            ) {|arg|
+              # ...
+            }
+            # Call method after defining it
+
+          elsif /^insertion_parameter_(?<n>\d+)$/ =~ meth
+            if (1..32) === n.to_i
+              raise NameError, "Insertion parameter number out of range"
+            end
+
+            self.class.send(
+              :define_method,
+              "insertion_parameter_#{n}".to_sym
+            ) {|arg|
+              # ...
+            }
+            # Call method after defining it
+
           else
             super
           end
-
-          self.class.send(:define_method, meth) {
-            tx *args
-          }
-          send meth, *args
         end
       end
 

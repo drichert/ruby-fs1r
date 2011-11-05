@@ -4,42 +4,6 @@ module Fs1r
     # Fs1r::Performance::Common
     class Common < Fs1r::Base
 
-      meth_seq({
-        'name_n' => {
-          :num_methods     => 12,      # number of methods to generate
-          :name_num_start  => 0,       # method name index
-          :param_num_start => 0x00,    # parameter number start point
-          :val_range       => 32..127  # input value range
-        },
-        'controller_n_part_switch' => {
-          :num_methods     => 8,
-          :param_num_start => 0x28,
-          :val_range       => 0..15
-        },
-        'controller_n_source_switch_hi' => {
-          :num_methods     => 8,
-          :param_num_start => 0x30,
-          :param_num_step  => 2,
-          :val_range       => 0..127
-        },
-        'controller_n_source_switch_lo' => {
-          :num_methods     => 8,
-          :param_num_start => 0x31,
-          :param_num_step  => 2,
-          :val_range       => 0..127
-        },
-        'controller_n_destination' => {
-          :num_methods     => 8,
-          :param_num_start => 0x40,
-          :val_range       => 0..47
-        },
-        'controler_n_depth' => {
-          :num_methods     => 8,
-          :param_num_start => 0x48,
-          :val_range       => 0..127
-        }
-      })
-
       # 0..22
       def category(v)
         tx 0x0E, *byte_pair(v)

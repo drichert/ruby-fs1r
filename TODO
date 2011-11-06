@@ -1,1 +1,13 @@
-- Add parameter number start points for dynamically defined methods
+Add parameter number start points for dynamically defined methods
+
+-
+Fs1r::Performance::Common do
+  volume      100  # Set performance volume param
+  pan         72   # Set performance pan param
+  note_shift  30   # Set performance note_shift param
+end
+
+p_c = Fs1r::Performance::Common.new
+p_c.volume      100
+p_c.pan         72
+p_c.note_shift  30

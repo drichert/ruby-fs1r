@@ -2,6 +2,9 @@ module Fs1r
   module Performance
     class Common < Fs1r::Base
 
+      #def self.
+      #end
+
       # 0..22
       def category(v)
         tx 0x0E, *byte_pair(v)

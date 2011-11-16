@@ -9,7 +9,7 @@ require 'unimidi'
 module Fs1r
   VERSION = "0.0.1"
 
-  #autoload :Base,        'fs1r/base'
+  autoload :Base,        'fs1r/base'
   #autoload :Voice,       'fs1r/voice'
   #autoload :Performance, 'fs1r/performance'
   #autoload :Fseq,        'fs1r/fseq'

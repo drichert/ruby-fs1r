@@ -1,6 +1,10 @@
 module Fs1r
   class Base
 
+    def initialize
+      midi_out
+    end
+
     private
       def midi_out
         @midi_out ||= UniMIDI::Output[Fs1r::output_index]

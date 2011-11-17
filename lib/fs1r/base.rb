@@ -29,7 +29,7 @@ module Fs1r
 
       # convert input to a pair of bytes
       def byte_pair(n)
-        if n.to(s).length > 16 || !n.instance_of?(Fixnum)
+        if n.to_s(2).length > 16 || !n.is_a?(Fixnum)
           raise "Input must be 16-bit integer"
         end
 

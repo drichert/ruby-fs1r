@@ -33,7 +33,9 @@ module Fs1r
           raise "Input must be 16-bit integer"
         end
 
-        [n.to_s(2)[0..3].to_i(2), n.to_s{2}[4..7].to_i(2)]
+        n = "#{0 * (16 = n.to_s(2).length)}#{n.to_s(2)}"
+
+        [n[0..7].to_i(2), n[8..15].to_i(2)]
       end
 
       # def rx(params)

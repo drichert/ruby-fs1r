@@ -148,6 +148,12 @@ module Fs1r
       end
 
       def method_missing(meth, *args, &block)
+        # /^name_(\d+)$/
+        # /^controller_(\d+)_part_switch$/
+        # /^controller_(\d+)_source_switch_(high|low)$/
+        # /^controller_(\d+)_destination$/
+        # /^controller_(\d+)_depth$/
+        #
         if meth =~ /^name_(\d+)$/
           self.class.class_eval {|args|
           }
